@@ -1,9 +1,9 @@
-Jenkins JNLP Slave
+Jenkins JNLP agent
 =========
 
-[![Build Status](https://travis-ci.org/kobanyan/jenkins-jnlp-slave.svg?branch=master)](https://travis-ci.org/kobanyan/jenkins-jnlp-slave)
+Minor update: changed some terminology to fit updated urls and terms on jenkins
 
-Install [Jenkins JNLP slave](https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds#Distributedbuilds-Launchslaveagentheadlessly) on Linux.
+Install [Jenkins JNLP agent](https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds#Distributedbuilds-Launchagentagentheadlessly) on Linux.
 
 Requirements
 ------------
@@ -16,7 +16,7 @@ Requirements
         - 18.04 (bionic)
     - CentOS
         - 7
-- Create user and install Java to run Jenkins on slave machine.
+- Create user and install Java to run Jenkins on agent machine.
 - Create node on Jenkins master.
 
 Role Variables
@@ -25,18 +25,18 @@ Role Variables
 - required
   - `jenkins_master`  
   URL of Jenkins server to connect to.
-  - `jenkins_slave_secret`  
+  - `jenkins_agent_secret`  
   Secret key to access Jenkins server as the node.
 - defaults
-  - `jenkins_slave_user`  
-  User to run Jenkins slave. Default value is `jenkins`.
-  - `jenkins_slave_group`  
-  Group to run Jenkins slave. Default value is `jenkins`.
-  - `jenkins_slave_name`  
-  Node name of Jenkins slave. Default value is `{{ ansible_hostname }}`.
-  - `jenkins_slave_home`  
-  Root directory of Jenkins slave. Default value is `/var/lib/jenkins`.
-  - `jenkins_slave_java`
+  - `jenkins_agent_user`  
+  User to run Jenkins agent. Default value is `jenkins`.
+  - `jenkins_agent_group`  
+  Group to run Jenkins agent. Default value is `jenkins`.
+  - `jenkins_agent_name`  
+  Node name of Jenkins agent. Default value is `{{ ansible_hostname }}`.
+  - `jenkins_agent_home`  
+  Root directory of Jenkins agent. Default value is `/var/lib/jenkins`.
+  - `jenkins_agent_java`
   Java binary path. Default value is `/usr/bin/java`.
 
 Dependencies
@@ -50,9 +50,9 @@ Example Playbook
 ```yaml
     - hosts: servers
       roles:
-         - { role: kobanyan.jenkins-jnlp-slave,
+         - { role: paul42.jenkins-jnlp-agent,
              jenkins_master: http://jenkins_master,
-             jenkins_slave_secret: secret }
+             jenkins_agent_secret: secret }
 ```
 
 License
@@ -63,4 +63,4 @@ MIT / BSD
 Author Information
 ------------------
 
-[kobanyan](https://github.com/kobanyan)
+original author is [kobanyan](https://github.com/kobanyan) - updated by [paul42](https://github.com/paul42)

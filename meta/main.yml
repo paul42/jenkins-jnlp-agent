@@ -1,8 +1,8 @@
 galaxy_info:
-  author: kobanyan
-  description: Install Jenkins JNLP slave.
+  author: paul42
+  description: Install Jenkins JNLP agent.
 
-  issue_tracker_url: https://github.com/kobanyan/jenkins-jnlp-slave/issues
+  issue_tracker_url: https://github.com/paul42/jenkins-jnlp-agent/issues
 
   license:
     - MIT
